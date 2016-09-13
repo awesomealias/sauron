@@ -24,7 +24,9 @@ The Cluster can be ran in two modes described below.
 * **small**
 ![sauron-architecture](architecture_cluster_small.png)
   * Default mode with a base install. Server contains the api service as well as data store and message queue.
+
 > This architecture is not recommended for production use
+
 * **ha**
 ![sauron-architecture](architecture_cluster_prod.png)
   * load balancer fronts N instances of api service (must support websockets)
