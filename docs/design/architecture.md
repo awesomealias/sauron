@@ -32,6 +32,6 @@ The Cluster can be ran in two modes described below.
   * Default mode with a base install. Server contains the api service as well as data store and message queue.
 * **ha**
   * load balancer fronts N instances of api service (must support websockets)
-  * data store is external from server, follwing HA best practice for supported data store
-  * message queue is external from server, following HA best pracices for supported message queue provider
+  * data store is external from server, following HA best practice for supported data store
+  * message queue is external from server, following HA best practices for supported message queue provider
 

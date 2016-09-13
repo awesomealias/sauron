@@ -10,19 +10,18 @@ digraph G {
     // nodes
     agent [shape="box", label=<agent>]
     api [shape="box", label=<api>]
-    datastore [shape="oval", label=<data store>]
-    messagequeue [shape="oval", label=<message<BR/>queue>]
+    datastore [shape="cylinder", label=<data store>]
+    messagequeue [shape="box", label=<message<BR/>queue>]
     consumers [shape="box", label=<consumers>]
     dockerNode [shape="box", label=<docker>]
     dockerServer [shape="box", label=<docker>]
     notifyPlugin [shape="box"]
     publishPlugin [shape="box"]
     checkPlugin [shape="box"]
-    loadBalancer [shape="box", label=<Load Balancer>]
+    loadBalancers [shape="box"]
 
     // relationships
-    consumers -> loadBalancer [dir="both" label=<http(s)<BR/>ws(s)>]
-    loadBalancer -> api [dir="both" label=<http(s)<BR/>ws(s)>]
+    consumers -> api [dir="both" label=<http(s)<BR/>ws(s)>]
 
     subgraph cluster_server {
         label=<<B>server node</B>>
@@ -33,6 +32,10 @@ digraph G {
             label=<<B>container</B>>
             labeljust="left"
             api
+            messagequeue
+            datastore
+
+             api -> messagequeue [dir="both"]
 
         }
 
@@ -78,7 +81,5 @@ digraph G {
 
     agent -> api [dir="both" label=<http(s)<BR/>ws(s)>]
     agent -> dockerNode
-    api -> messagequeue [dir="both"]
-    api -> datastore [dir="both"]
    
 }
