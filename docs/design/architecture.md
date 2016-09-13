@@ -16,21 +16,16 @@ Design Decisions
 * Agents speak to unified Server API to decouple data stores
 * All plugin types implemented as Docker contianer images for modularity/extensibility
 
-Architecture
-------------
-
-The following diagram shows the general architecture of a Sauron cluster.
-
-![sauron-architecture](architecture_cluster.png)
-
 Modes
 -----
 
 The Cluster can be ran in two modes described below.
 
 * **small**
+![sauron-architecture](architecture_cluster_small.png)
   * Default mode with a base install. Server contains the api service as well as data store and message queue.
 * **ha**
+![sauron-architecture](architecture_cluster_prod.png)
   * load balancer fronts N instances of api service (must support websockets)
   * data store is external from server, following HA best practice for supported data store
   * message queue is external from server, following HA best practices for supported message queue provider
